@@ -1,8 +1,8 @@
 
 # logstash
 
-> We assume that logstash, elasticsearch and kibana are installed and configured for this tutorial. See [here](/elk_stack) for instructions on installing the elastic stack.
-{.is-warning}
+!!! note
+    We assume that logstash, elasticsearch and kibana are installed and configured for this tutorial. See [here](/elk_stack) for instructions on installing the elastic stack.
 
 ## Introduction
 [Logstash]([https://www.elastic.co/guide/en/logstash/current/introduction.html](https://www.elastic.co/guide/en/logstash/current/introduction.html)) is an open source data collection engine with real-time pipelining capabilities. From the diagram we can see that a logstash consists of three components or stages:
@@ -19,7 +19,7 @@ The aim of this tutorial is to learn how to ingest longterm health records from 
 - Data set 1 (JSON events in a text file)
 - Reading JSON from a file and outputing to standard output
 
-## Useful Resources
+### Useful Resources
 
 Getting started with [logstash](https://www.elastic.co/blog/a-practical-introduction-to-logstash).
 
@@ -37,7 +37,7 @@ Little logstash lessons:
 https://www.elastic.co/blog/little-logstash-lessons-part-using-grok-mutate-type-data
 https://www.elastic.co/blog/logstash_lesson_elasticsearch_mapping
 
-# Running logstash
+## Running logstash
 
 
 Make sure logstash is installed. For the purposes of testing, we will be invoking logstash directly to debug the configuration.  The following bash script is used to invoke logstash:
@@ -95,6 +95,13 @@ The JSON data in testdata.log has the following format:
 
 ```
 
+## Sending JSON over TCP
+
+```
+nc -N localhost 5000 <  tmp.json
+```
+The -N flag will close the connection when the end of file (EOF) is reached.
+
 
 # A simple example: plotting a sine wave in kibana.
 
@@ -111,11 +118,6 @@ http://localhost:5601/
 Go to stack management / Index Patterns to create a new index pattern
 
 
-## Sending JSON over TCP
 
-```
-nc -N localhost 5000 <  tmp.json
-```
-The -N flag will close the connection when the end of file (EOF) is reached.
 
 ## Resources
