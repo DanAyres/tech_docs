@@ -1,21 +1,11 @@
-# Configuring the Elastic Stack
+## Local Installation
 
-## Introduction
-
-The elastic stack is the name given to a collection of tools for parsing, shipping, storing and viewing data. The parsing and shipping functions are performed by Logstash, 
-storing is done by Elasticsearch and viewing is done in Kibana. These three services are usually hosted on a server and a fourth service (beats) is used to ship data from a client to the server. See the figure below.
-
-
-![elk-infrastructure.png](img/elk-infrastructure.png)
-
-In this tutorial we will learn how to install the elastic stack first locally and then hosted on an ubuntu 18.04 server.
 
 ### Useful Resources
 
 An example of installing the stack on Ubuntu Server 18.04 (on AWS) can be found [here](https://logz.io/learn/complete-guide-elk-stack/#installing-elk).
 Instructions for configuring the elastic stack on various Linux distributions. The following instructions follow the same process as [this DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-logstash-and-kibana-elk-stack-on-ubuntu-14-04) tutorial with the exception that an explicit installation of Java is no longer required since it is now bundled with elastic.
 
-## Local Installation
 
 
 ### Elasticsearch
