@@ -7,6 +7,11 @@ An example of installing the stack on Ubuntu Server 18.04 (on AWS) can be found 
 Instructions for configuring the elastic stack on various Linux distributions. The following instructions follow the same process as [this DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-logstash-and-kibana-elk-stack-on-ubuntu-14-04) tutorial with the exception that an explicit installation of Java is no longer required since it is now bundled with elastic.
 
 
+https://logz.io/learn/complete-guide-elk-stack/
+
+https://towardsdatascience.com/running-securing-and-deploying-elastic-stack-on-docker-f1a8ebf1dc5b
+
+
 
 ### Elasticsearch
 
@@ -74,13 +79,5 @@ Before you run Logstash, you will need to configure a data pipeline. We will get
 
 ### Kibana
 
-## Server Installation
-
-### Configuring nginx as a reverse proxy for kibana
-
-## Resources
 
 
-https://logz.io/learn/complete-guide-elk-stack/
-
-https://towardsdatascience.com/running-securing-and-deploying-elastic-stack-on-docker-f1a8ebf1dc5b

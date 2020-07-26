@@ -7,11 +7,10 @@ nav:
     - Elastic Stack: 
         - Part 1 Introduction: 'elastic-stack/Part1-Introduction.md'
         - Part 2 Local Installation: 'elastic-stack/Part2-LocalInstallation.md'
-        - Part 3 Reading JSON from file with LogStash: 'elastic-stack/Part3-JsonFromFile.md'
-        - Part 4 Reading JSON from a TCP connection with LogStash: 'elastic-stack/Part4-JsonOverTcp.md'
-        - Part 5 Example 1 plotting trig functions in Kibana: 'elastic-stack/Part5-Example1-trig.md'
-        - Part 6 Elasticsearch mappings and templates: 'elastic-stack/Part6-ElasticMappings.md'
-        - Part 7 Server deployment: 'elastic-stack/Part7-ServerDeployment.md'
+        - Part 3 Basic Logstash (Example 1): 'elastic-stack/Part3-Example-BasicLogstash.md'
+        - Part 4 Plotting trig functions in Kibana (Example 2): 'elastic-stack/Part5-Example1-trig.md'
+        - Part 5 Elasticsearch mappings and templates: 'elastic-stack/Part6-ElasticMappings.md'
+        - Part 6 Server deployment: 'elastic-stack/Part7-ServerDeployment.md'
         
 # Extensions
 markdown_extensions:
