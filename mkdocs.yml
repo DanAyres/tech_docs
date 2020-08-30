@@ -8,9 +8,12 @@ nav:
         - Part 1 Introduction: 'elastic-stack/Part1-Introduction.md'
         - Part 2 Local Installation: 'elastic-stack/Part2-LocalInstallation.md'
         - Part 3 Basic Logstash (Example 1): 'elastic-stack/Part3-Example-BasicLogstash.md'
-        - Part 4 Plotting trig functions in Kibana (Example 2): 'elastic-stack/Part5-Example1-trig.md'
+        - Part 4 Plotting trig functions in Kibana (Example 2): 'elastic-stack/Part4-Example2_Trig.md'
         - Part 5 Elasticsearch mappings and templates: 'elastic-stack/Part6-ElasticMappings.md'
         - Part 6 Server deployment: 'elastic-stack/Part7-ServerDeployment.md'
+    - Projects:
+        - Kalman Filters:
+            - State Space Equations: 'projects/kalman_filters/state_space_eqns.md'
         
 # Extensions
 markdown_extensions:
@@ -23,15 +26,16 @@ markdown_extensions:
   - markdown.extensions.meta
   - markdown.extensions.toc:
       permalink: true
-  - pymdownx.arithmatex
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.betterem:
       smart_enable: all
   - pymdownx.caret
   - pymdownx.critic
   - pymdownx.details
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+  #- pymdownx.emoji:
+  #    emoji_index: !!python/name:materialx.emoji.twemoji
+  #    emoji_generator: !!python/name:materialx.emoji.to_svg
   # - pymdownx.highlight:
   #     linenums_style: pymdownx-inline
   - pymdownx.inlinehilite
@@ -45,3 +49,7 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+extra_javascript:
+  - javascripts/config.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
