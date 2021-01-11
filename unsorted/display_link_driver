@@ -1,0 +1,111 @@
+https://github.com/AdnanHodzic/displaylink-debian
+
+
+https://askubuntu.com/questions/1044488/displaylink-usb-monitor-on-lubuntu-18-04
+
+https://wiki.archlinux.org/index.php/DisplayLink
+
+
+
+sudo ./displaylink-debian.sh --debug
+
+Starting Debug ...
+
+Did you read Post Installation Guide? http://bit.ly/2TbZleK [y/N] y
+
+Did you read Troubleshooting most common issues? http://bit.ly/2Rofd0x [y/N] y
+
+--------------- Linux system info ----------------
+
+Distro: Ubuntu
+Release: eoan
+Kernel: 5.3.0-64-generic
+
+---------------- DisplayLink info ----------------
+
+Driver version: 1.7.0
+DisplayLink service status: up and running
+EVDI service version: 1.7.0
+
+------------------ Graphics card -----------------
+
+Vendor: i915
+Subsystem: HD
+VGA: Intel Corporation HD Graphics 5300 (rev 09)
+VGA (3D): 
+X11 version: 1.20.5+git20191008-0ubuntu1
+X11 configs: /etc/X11/xorg.conf.d/00-keyboard.conf /etc/X11/xorg.conf.d/20-displaylink.conf
+
+-------------- DisplayLink xorg.conf -------------
+
+File: /etc/X11/xorg.conf.d/20-displaylink.conf
+Contents:
+ Section "Device"
+    Identifier  "Intel"
+    Driver      "intel"
+EndSection                                                                                                                                                                                   
+                                                                                                                                                                                             
+-------------------- Monitors --------------------                                                                                                                                           
+                                                                                                                                                                                             
+Providers: number : 1                                                                                                                                                                        
+Provider 0: id: 0x46 cap: 0x9, Source Output, Sink Offload crtcs: 4 outputs: 3 associated providers: 0 name:Intel                                                                            
+                                                                                                                                                                                             
+-------------------------------------------------------------------
+
+Use this information when submitting an issue (http://bit.ly/2GLDlpY)
+
+-------------------------------------------------------------------
+
+
+
+This is a usefule page for debugging:
+
+https://xorg-team.pages.debian.net/xorg/howto/use-xrandr.html
+
+
+xrandr --auto
+
+
+
+https://wiki.archlinux.org/index.php/DisplayLink#Troubleshooting
+
+https://wiki.archlinux.org/index.php/xorg#Configuration
+
+
+
+Displaylink uses evdi which in turn uses DRM
+
+https://github.com/DisplayLink/evdi
+
+
+
+
+===================
+Test 1
+==================
+
+changing number of DRM devices as described here: https://support.displaylink.com/knowledgebase/articles/1843660-screen-freezes-after-opening-an-application-only
+
+cat /etc/X11/xorg.conf.d/20-displaylink.conf 
+Section "Device"
+  Identifier "DisplayLink"
+  Driver "modesetting"
+  Option "PageFlip" "false"
+EndSection
+
+
+sudo echo "options evdi initial_device_count=5" > /etc/modprobe.d/evdi.conf
+
+===================
+Test 2
+==================
+
+https://support.displaylink.com/knowledgebase/articles/1107401-how-to-reduce-or-increase-the-amount-of-messages-t
+
+
+
+===================
+Test 3
+==================
+
+https://wiki.archlinux.org/index.php/DisplayLink

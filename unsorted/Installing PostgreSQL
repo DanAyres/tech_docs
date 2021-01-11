@@ -1,0 +1,76 @@
+setting up postgres
+
+
+Usefule instrcutions for post-installation here:
+https://www.postgresql.org/docs/12/creating-cluster.html
+https://github.com/postgres/postgres/blob/master/src/backend/utils/misc/postgresql.conf.sample
+https://help.ubuntu.com/community/PostgreSQL
+https://stackoverflow.com/questions/32439167/psql-could-not-connect-to-server-connection-refused-error-when-connecting-to
+
+1) Add the postgres package repository:
+2) sudo apt-get install postgresql-12
+3) The postgres user has been created but has no password set
+Checking here sudo cat /etc/shadow: an asterix means the account is locked and no password is acceptable for it.
+4) Set a password: sudo passwd postgres
+5) Check that the database has been initialised:
+- sudo -u postgres psql -c "show data_directory;"
+sudo -u postgres psql -c "show listen_addresses;"
+sudo -u postgres psql -c "show config_file;"
+
+sudo -u postgres createdb testdb
+sudo -u postgres psql testdb
+select version();
+\q
+
+
+6) If using UFW, 
+- allow connections from the local subnet
+sudo ufw allow from 172.16.0.0/24 to any port 5432
+
+7) Set the database to listen to the external network
+
+Edit:
+/etc/postgresql/12/main/postgresql.conf
+
+listen_addresses = '*'
+
+and add the following line to /etc/postgresql/12/main/pg_hba.conf
+host    all             all             172.16.0.1/24           md5
+SEE https://www.postgresql.org/docs/12/auth-pg-hba-conf.html for an explaination.
+
+8) Set a password for the admin account. The admin account will default to the linux user that initialised the database; tjhis will be the user: postgres.
+In a terminal, type:
+
+sudo -u postgres psql postgres
+
+this connects as a role with same name as the local user, i.e. "postgres", to the database called "postgres" (1st argument to psql).
+
+Set a password for the "postgres" database role using the command:
+
+\password postgres
+
+and give your password when prompted. The password text will be hidden from the console for security purposes.
+
+Type Control+D or \q to exit the posgreSQL prompt. 
+
+
+To display the current users (roles):
+psql 
+\du
+
+see https://www.postgresql.org/docs/12/database-roles.html for information on creating more roles and assigning attributes
+
+
+9) Check connection from remote client
+
+Install postgres client
+
+USE:
+psql -h <host> -p <port> -u <database>
+psql -h <host> -p <port> -U <username> -W <password> <database>
+
+psql -h 172.16.0.22 -p 5432 -u postgres
+
+
+Logs are located here: /var/log/postgresql/postgresql-12-main.log
+

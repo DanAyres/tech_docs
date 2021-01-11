@@ -1,0 +1,29 @@
+https://linuxize.com/post/how-to-install-python-3-7-on-ubuntu-18-04/
+https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa
+
+
+# Add the deadsnakes repository
+this wiil provide access to many python 3 versions including the new 3.9 :)
+
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get update
+
+
+To do anything useful, we also need pip as well as python
+sudo apt install python3.7
+sudo apt install python3-pip
+
+
+To make virtual environments for python the virtualenv package is also required
+sudo apt-get install python3.X-venv
+pip install virtualenv
+
+
+(Didn't need this in the end)
+There is some sort of bug with creating virtual environment with pip, see link below
+https://community.intel.com/t5/Intel-Distribution-for-Python/python-m-venv-fails-returned-non-zero-exit-status-1/td-p/1156751
+
+
+python -m venv foo --without-pip
+source foo/bin/activate
+curl https://bootstrap.pypa.io/get-pip.py | python

@@ -1,0 +1,36 @@
+## Install prerequisite libs
+
+https://askubuntu.com/questions/1025350/sudo-usr-share-doc-libdvdread4-install-css-sh-command-not-found
+
+
+sudo apt install libdvdcss2 libdvdread4 libdvdnav4 ubuntu-restricted-extras
+
+or lubuntu-restricted-extras
+
+sudo dpkg-reconfigure libdvd-pkg
+
+
+## Install handbrake
+https://handbrake.fr/docs/en/1.2.0/get-handbrake/download-and-install.html
+sudo add-apt-repository ppa:stebbins/handbrake-releases
+sudo apt-get update
+
+sudo apt-get install handbrake-cli 
+
+and handbrake-gtk if running a GUI
+
+
+
+## Handbrake CLI
+
+https://handbrake.fr/docs/en/latest/cli/command-line-reference.html
+
+
+
+HandBrakeCLI -Z "Fast 1080p30" -i 
+
+HandBrakeCLI -Z "Fast 1080p30" -i /media/dan/HILARY_AND_JACKIE --main-feature -o /home/dan/Media/Videos/JillaryJackie.m4v
+
+sudo mount /dev/sr0 /media/cdrom
+HandBrakeCLI -Z "HQ 1080p30 Surround" -i /media/cdrom --main-feature -o /home/dan/VideoRIPS/An_Education.m4v
+

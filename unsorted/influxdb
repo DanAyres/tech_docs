@@ -1,0 +1,104 @@
+https://docs.influxdata.com/influxdb/v1.8/introduction/get-started/
+
+
+# Installing on ubuntu server 18.x
+ 1185  wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+ 1186  source /etc/lsb-release 
+ 1187  echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+ 1188  sudo apt-get update && sudo apt-get install influxdb
+ 1189  sudo service influxdb start
+ 1192  cat /etc/influxdb/influxdb.conf 
+ 
+ 
+ # set the firewall
+ 
+ 1193  ifconfig
+ 1199  sudo ufw status numbered
+ 1201  sudo ufw allow from 172.16.0.0/24 to any port 8086
+ 1202  sudo ufw status numbered
+
+
+# Create and play (local)
+
+## open the influx CLI and display times in human-readable format
+influx -precision rfc3339
+
+
+## create a new database called "dutch2"
+CREATE DATABASE dutch2
+
+Now that the mydb database is created, we’ll use the SHOW DATABASES statement to display all existing databases:
+SHOW DATABASES
+
+set the working database to "dutch2"
+use dutch2
+
+## inserting data
+insert 0349-150021,group=gamma,name=Pan1DetG1,param=BiasVoltage value=0.1
+insert 0349-150021,group=gamma,name=Pan1DetG1,param=BlankRate value=0.2
+insert 0349-150021,group=gamma,name=Pan1DetG1,param=FineGain value=0.3
+insert 0349-150021,group=gamma,name=Pan1DetG1,param=HighVoltage value=0.4
+insert 0349-150021,group=gamma,name=Pan1DetG1,param=HighVoltage value=0.4 2018-06-01T00:02:18.972349+00:00
+
+select * from "0349-150021"
+
+
+
+# create and play (remote)
+
+https://docs.influxdata.com/influxdb/v1.8/guides/write_data/
+
+curl -i -XPOST 'http://172.16.0.21:8086/write?db=mydb' --data-binary '0349-150021,group=gamma,name=Pan1DetG2,param=BiasVoltage value=0.2'
+curl -i -XPOST 'http://172.16.0.21:8086/write?db=mydb' --data-binary '0349-150021,group=gamma,name=Pan1DetG2,param=BlankRate value=0.2'
+curl -i -XPOST 'http://172.16.0.21:8086/write?db=mydb' --data-binary '0349-150021,group=gamma,name=Pan1DetG2,param=FineGain value=0.2'
+curl -i -XPOST 'http://172.16.0.21:8086/write?db=mydb' --data-binary '0349-150021,group=gamma,name=Pan1DetG2,param=HighVoltage value=0.2'
+
+
+# Push data from python
+
+
+
+# Installing GRAFANA
+
+https://grafana.com/docs/grafana/latest/installation/debian/
+
+wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list 
+
+sudo apt-get update
+sudo apt-get install grafana
+
+# start the server
+sudo systemctl daemon-reload
+sudo systemctl start grafana-server
+sudo systemctl status grafana-server
+
+# start at boot
+sudo systemctl enable grafana-server.service
+
+# change http port
+sudo vi /etc/grafana/grafana.ini
+http_port 3030
+
+# add a firewall rule
+ 1199  sudo ufw status numbered
+ 1201  sudo ufw allow from 172.16.0.0/24 to any port 3000
+
+
+
+# debug commanda
+
+run the influx CLI and display dates in human-readable format
+influx -precision rfc3339
+
+show the data types of the field keys
+show field keys
+
+
+test datatypes
+
+insert SCH10-0349-150013,group=Background,name=Pan1DetG2,param=Invalid value=false 1527811338972349000
+insert SCH10-0349-150013,group=gamma,name=Pan1DetG1,param=BiasVoltage value=0.1 2018-06-01T00:02:18.972349+00:00
+
+
+

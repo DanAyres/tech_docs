@@ -1,0 +1,32 @@
+server name: dizzy_store
+username: dizzy
+Password:Nj#46H7pZfwY
+
+
+Mounting as a shared folder
+Linux
+https://blog.whabash.com/posts/mounting_synology_nas_shared_folder_nfs_ubuntu_16_10
+
+sudo mount -t nfs 172.16.0.26:/volume1/Media /media/dan/NAS-Media
+sudo mount -t nfs 172.16.0.26:/volume1/Documents /media/dan/NAS-Documents
+
+
+Backups and Syncs between local computers
+https://www.synology.com/en-global/knowledgebase/DSM/help/SynologyDriveClient/synologydriveclient
+
+
+
+
+
+Media naming and directory structure
+https://support.plex.tv/articles/naming-and-organizing-your-tv-show-files/
+
+
+
+
+ToDo
+1) Power management
+2) JBOD?
+3) Static IP addr
+
+

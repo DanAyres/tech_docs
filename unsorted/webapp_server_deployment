@@ -1,0 +1,14 @@
+Configuring a webapp deployment
+
+1) install nginx
+
+2) create a new user for the app called 'webapp'
+useradd -m -s /bin/bash webapp
+usermod -a -G sudo webapp
+passwd webapp
+su - webapp
+
+3) setup ssh keys
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+ssh-keygen -t rsa

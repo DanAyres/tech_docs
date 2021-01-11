@@ -1,0 +1,56 @@
+## Configuring a DHCP server on Ubuntu
+
+We wish to configure a DHCP service on an interface attached to the following subnet: 192.168.1.0. The interface (server) will be at 192.168.1.10 and addresses will be allocated to clients in the range: 192.168.1.150 to 192.168.1.200.
+
+The dhcp server is provided by isc-dhcp-server.service which can be installed using the following (debian):
+sudo apt-get install isc-dhcp-server
+
+# DHCP Configuration
+The configuration file for the DHCP deamon is located at /etc/dhcp/dhcpd.conf. Here is an example configuration file:
+
+ddns-update-style none;
+authoritative;
+default-lease-time 600;
+max-lease-time 7200;
+subnet 192.168.1.0 netmask 255.255.255.0 {
+ range 192.168.1.150 192.168.1.200;
+}
+
+
+# Bind the DHCP server to an interface / interfaces
+The DHCP server must be told which network interface to listen on, to do ths edit the file /etc/default/isc-dhcp-server and set the following
+INTERFACESv4="eth0 eth1"
+Each network interface is specified in a list delimited by a space.
+
+# Set the address of the network interface
+To relate subnet specification(s) to the network interface(s), each interface must be given an address in on the subnet 
+
+
+
+
+## Debug and logging:
+The logs for isc-dhcp-server.service are sent to syslog. To view (and follow) them use the following command:
+journalctl -u isc-dhcp-server.service -f
+
+
+# Another good tutorial
+https://www.cyberciti.biz/faq/howto-ubuntu-debian-squeeze-dhcp-server-setup-tutorial/
+
+# Good resource on dhcp configuration
+https://ubuntu.com/server/docs/network-dhcp
+
+
+# Good information on netplan
+https://ubuntu.com/server/docs/network-configuration
+
+
+https://netplan.io/examples
+
+
+
+https://wiki.debian.org/NetworkConfiguration#Setting_up_an_Ethernet_Interface
+https://www.debian.org/doc/manuals/debian-reference/ch05.en.html
+
+
+PXE boot and DHCP conf
+https://prefetch.net/articles/iscdhcpd.html

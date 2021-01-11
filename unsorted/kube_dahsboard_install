@@ -1,0 +1,15 @@
+## resources
+
+- nginx reverse proxy with Authentication
+https://techexpert.tips/kubernetes/kubernetes-dashboard-user-authentication-nginx/
+
+
+## Using a Kubernetes ingress
+
+https://stackoverflow.com/questions/48324760/ingress-configuration-for-dashboard
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.41.2/deploy/static/provider/baremetal/deploy.yaml
+
+check that the pods are running
+
+kubectl get pods -n ingress-nginx -l app.kubernetes.io/name=ingress-nginx --watch

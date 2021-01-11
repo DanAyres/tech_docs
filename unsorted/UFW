@@ -1,0 +1,39 @@
+Resources
+
+https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-18-04
+https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands
+
+
+Different applications can register their profiles with UFW upon installation. These profiles allow UFW to manage these applications by name. OpenSSH, the service allowing us to connect to our server now, has a profile registered with UFW.
+
+You can see this by typing:
+
+    ufw app list
+
+Output
+Available applications:
+  OpenSSH
+
+We need to make sure that the firewall allows SSH connections so that we can log back in next time. We can allow these connections by typing:
+
+    ufw allow OpenSSH
+
+Afterwards, we can enable the firewall by typing:
+
+    ufw enable
+
+Type “y” and press ENTER to proceed. You can see that SSH connections are still allowed by typing:
+
+    ufw status verbose
+
+Output
+Status: active
+
+To                         Action      From
+--                         ------      ----
+OpenSSH                    ALLOW       Anywhere
+OpenSSH (v6)               ALLOW       Anywhere (v6)
+
+
+
+Check

@@ -1,0 +1,30 @@
+Creating Users and Databases and managing access
+
+
+To create a new user (role with login rights)
+login to database as the superuser:
+sudo -u postgres psql
+create user wikijs;
+see https://www.postgresql.org/docs/12/database-roles.html for information on creating more roles and assigning attributes
+
+To update the newly created users password
+ALTER USER wikijs WITH ENCRYPTED PASSWORD 'wikijs';
+
+
+To create a new database
+login to database as the superuser:
+sudo -u postgres psql
+https://www.postgresql.org/docs/12/manage-ag-overview.html
+create database wiki owner wikijs;
+
+
+
+The new user will only be able to login to the database via a tcp/ip, for instance:
+psql -h 172.16.0.22 -p 5432 -d wiki -U wikijs or
+psql -h localhost -p 5432 -d wiki -U wikijs
+
+
+username: wikijs
+password: wikijs
+Test remote connection with 
+psql -h 172.16.0.22 -p 5432 -d wiki -U wikijs

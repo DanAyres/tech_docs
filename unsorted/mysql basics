@@ -1,0 +1,76 @@
+To connect to the mysql database
+
+sudo isql symetrica
+
+
+List all of the tables:
+show tables;
+
+We can show the structure of the table using the "desc" command, so for the "Occupancies" table:
+desc Occupancies;
+
+Display the first 10 rows :
+select * from Occupancies LIMIT 10
+
+selecting columns by name
+select col_a, col_b from table_name 
+
+
+Grab the latest 200 rows
+select CTime, Path from ( select * from Occupancies order by id desc limit 200 ) sub order by id asc
+
+
+Looks like the names of the hosts are in the Hosts table. To show them:
+select id, Name from Hosts order by id asc
+
+
+
+
+
+Grab the latest 200 rows
+select CTime, Host, Path from ( select * from Occupancies order by id desc limit 2000 ) sub where Path like "0349-150018%" order by id asc
+
+
+
+
+Installing mysql:
+
+
+
+To connect to a mysql database using pycharm
+https://stackoverflow.com/questions/41645309/mysql-error-access-denied-for-user-rootlocalhost
+
+sudo mysql
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
+
+
+
+### 
+Filter by CTime and Host, count the number of Threat and GroupBy Threat
+###
+
+Test filter by date
+select id,CTime, Host, Threat from Occupancies where CTime >= '2018-06-12' AND CTime < '2018-06-13'
+
+Test filter by date and host
+select id,CTime, Host, Threat from Occupancies where CTime >= '2018-06-13' AND CTime < '2018-06-14' AND Host = 1
+
+Final query
+select Threat, count(*) as num_threats from Occupancies where CTime >= '2018-06-19' AND CTime < '2018-06-20' AND Host = 1 group by Threat
+
+
+Group IDSummary
+select IDSummary, count(*) as num_threats from Occupancies where CTime >= '2018-06-19' AND CTime < '2018-06-20' AND Host = 1 group by IDSummary
+
+Grab all of the gamma alarms between specified dates
+select id, Threat, IDSummary, TotalGammaCounts, Host from Occupancies where GammaAlert = (1) AND CTime >= '2018-06-19' AND CTime < '2018-06-20'
+
+
+Location of the db
+/var/lib/mysql/symetrica
+
+location of database information
+/etc/odbc.ini
+
+

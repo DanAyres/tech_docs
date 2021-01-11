@@ -1,0 +1,4 @@
+1) journalctl was not available. I found that a 
+> sudo apt-get install systemd
+installed the missing packages
+

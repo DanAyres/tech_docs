@@ -1,0 +1,9 @@
+Storing LHR time series data in elasticsearch
+
+
+- Timelion is an visualization tool for time series in Kibana: https://www.elastic.co/blog/timelion-tutorial-from-zero-to-hero
+- Time series data in elasticsearch: https://www.elastic.co/blog/querying-and-aggregating-time-series-data-in-elasticsearch
+- Get started with metricbeat: https://www.elastic.co/guide/en/beats/metricbeat/7.3/metricbeat-getting-started.html
+
+
+

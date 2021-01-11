@@ -1,0 +1,19 @@
+
+https://developer.gnome.org/NetworkManager/stable/nmcli-examples.html
+https://developer.gnome.org/NetworkManager/stable/nmcli.html
+https://askubuntu.com/questions/237777/is-there-a-tool-like-wifi-analyzer-for-ubuntu
+
+
+List all available WiFi networks
+nmcli device wifi list
+
+limit to channel numbers and sort
+ nmcli -f "CHAN,BARS,SIGNAL,SSID" d wifi list  | sort -n
+
+
+List all connections
+nmcli con
+
+
+
+

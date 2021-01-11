@@ -1,0 +1,23 @@
+
+Continuous integration server for Django
+https://medium.com/@mondaini/assembling-a-continuous-integration-service-for-a-django-project-on-jenkins-5f979d4c4184
+
+
+Installing Jenkins
+https://www.jenkins.io/doc/book/installing/
+
+
+Running headless browser tests
+https://blog.logrocket.com/introduction-to-headless-browser-testing-44b82310b27c/
+
+https://www.toolsqa.com/selenium-webdriver/selenium-headless-browser-testing/
+
+https://pythonbasics.org/selenium-firefox-headless/
+
+
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+0d4af1f993534aeb84cfee6674cae729
+
+This may also be found at: /var/lib/jenkins/secrets/initialAdminPassword

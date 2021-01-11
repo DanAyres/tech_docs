@@ -1,0 +1,22 @@
+Compression algorithms for pandas HDF5
+
+Initially used the following code to open an HDF5 store:
+data_store_portals = pd.HDFStore(filename)
+
+This led to some suprisingly large files...
+
+Tested on a small data set. Here are some results
+
+codec						h5_file_1  		h5_file_2
+nothing specified			56.4 Mb			28.3Mb
+'blosc:blosclz' level=9		10.4 Mb			2.2 Mb
+'blosc:lz4hc' level=9		8.0 Mb			1.4 Mb
+'blosc:zstd', level=9		7.0 Mb			1.0 Mb
+
+
+
+Comparison with the full data set
+
+test						h5_file_1  		h5_file_2
+nothing specified			3005.0 Mb			1606.2Mb
+'blosc:zstd', level=9		357.2 Mb			58.9 Mb

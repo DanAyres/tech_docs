@@ -1,0 +1,24 @@
+
+1. Create a github account
+https://github.com/
+
+2. Follw the first 6 steps here:
+https://help.github.com/en/github/working-with-github-pages/creating-a-github-pages-site
+
+3. Add DanAyres as a collaborator to the project
+https://help.github.jp/enterprise/2.11/user/articles/inviting-collaborators-to-a-personal-repository/
+
+4. Configure your DNS to point at the github page
+https://hackernoon.com/how-to-set-up-godaddy-domain-with-github-pages-a9300366c7b
+
+
+
+
+https://help.github.com/en/github/working-with-github-pages
+
+GoDaddy CNAME record
+https://uk.godaddy.com/help/add-a-cname-record-19236
+
+
+Godaddy + github
+https://hackernoon.com/how-to-set-up-godaddy-domain-with-github-pages-a9300366c7b
