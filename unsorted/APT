@@ -1,8 +1,0 @@
-Check to see if any processes are using apt
-
-ps aux | grep -i apt
-
-
-f you are on Ubuntu server, you may check whether you have unattended upgrades enabled by checking the content of the file 
-
-/etc/apt/apt.conf.d/20auto-upgrades.

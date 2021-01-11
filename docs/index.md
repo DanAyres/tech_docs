@@ -31,7 +31,7 @@ https://facelessuser.github.io/pymdown-extensions/extensions/arithmatex/#options
 
 # Development
 
-1. source the virtual envorinment
+1. source the virtual environment
 ```
 source <path_to_venv>/bin/activate
 ```
