@@ -109,6 +109,16 @@ PUT 'localhost:9200/_settings
           "field": "error"
         }
       },
-      "sort": { "@timestamp" : "desc" }
+      "sort": { "@timestamp" : "desc" },
+      "size": 2    
+    }
+    '
+
+- Return all documents in time order that have the field name 'error':
+    ```shell script
+    curl -X GET "localhost:9200/_search?pretty" -H 'Content-Type: application/json' -d'
+    {
+      "sort": { "@timestamp" : "desc" },
+      "size": 2    
     }
     '
