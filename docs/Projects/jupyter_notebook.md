@@ -120,11 +120,37 @@ including how to secure using https, can be found on the jupyter-notebook websit
     sudo journalctl -u jupyter.service
     ```
     
-    To make the service start automatically on system boot
+    To make the service starts automatically on system boot
     ```shell
     sudo systemctl enable jupyter.service
-```
-  
+    ```
 
 ## Step 4: Remote kernel
+
+Make sure the "remote_ikernel" package is installed on both machines. On the pi, run
+```shell
+pipenv run ipython kernel install --user --name=development-testing
+```
+if using pipenv, otherwise source the environment and ignore the 'pipenv run' part. The previous command
+will echo the location of the kernel information to the terminal. To view the kernel information, open the file in the 
+echoed folder
+```shell
+cat /home/pi/.local/share/jupyter/kernels/development-testing/kernel.json
+```
+The output will look similar to this:
+```json
+{
+ "argv": [
+  "/home/pi/.local/share/virtualenvs/advanced_python-SY-xcT0U/bin/python",
+  "-m",
+  "ipykernel_launcher",
+  "-f",
+  "{connection_file}"
+ ],
+ "display_name": "development-testing",
+ "language": "python"
+}
+```
+
+
 
