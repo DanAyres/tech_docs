@@ -89,7 +89,7 @@ the Dockerfile in the build context path.
 
 - stop a running container
     ```shell
-    docker container stop <container_id>
+    docker container ástop <container_id>
     ```
 
 - stop all containers

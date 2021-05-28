@@ -151,6 +151,9 @@ The output will look similar to this:
  "language": "python"
 }
 ```
-
+Copy the interpreter location above and execute the following command
+```shell
+remote_ikernel manage --add --kernel_cmd="/home/pi/.local/share/virtualenvs/advanced_python-SY-xcT0U/bin/python -m ipykernel_launcher -f {connection_file}" --name="pisensors" --interface=ssh --host=pi@172.16.0.25 --workdir="/home/pi/jupyter/advanced_python" --language=python
+```
 
 
