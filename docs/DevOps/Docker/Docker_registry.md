@@ -2,6 +2,8 @@ https://docs.docker.com/registry/deploying/
 https://docs.docker.com/registry/insecure/
 https://docs.docker.com/engine/reference/run/
 
+https://gabrieltanner.org/blog/docker-registry
+
 ## HTTP access
 
 To allow docker to use an unsecure registry, modify the file /etc/docker/daemon.json

@@ -35,7 +35,7 @@ There  are two ways to build a docker image:
     new layer to the image and tell Docker what to do when building the image. Dockerfile [best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
    
     - Create a new directory and touch a file called 'Dockerfile'
-      ```dockerfile
+      ```
         FROM debian:buster
         RUN apt-get update
         RUN apt-get install -y git
