@@ -102,8 +102,15 @@ ILOM: 172.16.6.47
     ```shell
     sudo mkdir -p /etc/docker/certs.d/172.16.6.132
     scp root@172.16.6.132:etc/docker/certs.d/172.16.6.132/ca.crt /etc/docker/certs.d/172.16.6.132
-   sudo systemctl restart docker
+    sudo systemctl restart docker
     ```
    See also [here](https://goharbor.io/docs/1.10/working-with-projects/working-with-images/pulling-pushing-images/)
+   
+5) Pushing an image to the registry
+
+   Once the docker client has been configured with the certs, you can log in and push images to the repo. To login,
+   ```shell
+   docker login -u <user> -p <password> 172.16.6.132
+   ```
 
 

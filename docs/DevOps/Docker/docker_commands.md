@@ -89,7 +89,7 @@ the Dockerfile in the build context path.
 
 - stop a running container
     ```shell
-    docker container ástop <container_id>
+    docker container stop <container_id>
     ```
 
 - stop all containers
@@ -121,6 +121,11 @@ the Dockerfile in the build context path.
 - remove container(s)
     ```shell
     docker image rm [image_id1] [image_id1]
+    ```
+
+- remove all images
+    ```shell
+    docker image rm $(docker image -aq)
     ```
 
 ## Layer commands

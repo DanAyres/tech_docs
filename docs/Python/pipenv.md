@@ -5,7 +5,7 @@
 1) Check the version of pip and upgrade
     ```shell
     python3 -m pip --version
-    python3 -m pip --upgrade pip
+    python3 -m pip install --upgrade pip
     ```
 2) Install pipenv into your user directory (the default directory is the system directory which will require root privileges)
     ```shell
