@@ -31,7 +31,10 @@ Execute a command in a pod
 ```
 kubectl exec [pod_name] -- [CMD]
 ```
-The "--" signals the end of the commands for kubectl and signifies that everything after it should be executed within the pod.
+The "--" signals the end of the commands for kubectl and signifies that everything after it should be executed within the pod. To open a shell into a pod:
+```
+kubectl exec -it [pod_name] -- /bin/bash
+```
 Delete all Pods
 ```
 kubectl delete po --all

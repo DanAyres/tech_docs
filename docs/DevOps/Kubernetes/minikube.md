@@ -52,6 +52,7 @@ docker client running within the minikube container. To do this, create a folder
     ```shell
     cp /etc/docker/certs.d/172.16.6.132/*  ~/.minikube/files/etc/docker/certs.d/172.16.6.132/
     ```
+   Credit to [this post](https://stackoverflow.com/questions/39521300/how-to-install-a-ca-in-minikube-so-image-pulls-are-trusted). 
 6) Deploy a cheeky pod using the registry:
     ```yaml
     apiVersion: v1
@@ -65,3 +66,25 @@ docker client running within the minikube container. To do this, create a folder
       imagePullSecrets:
       - name: regcred
     ```
+   Deploy this to the cluster using
+   ```shell
+   kubectrl apply -f name_of_spec.yaml
+   ```
+
+## Dashboard
+
+This is not a permanent solution.
+
+Run the dashboard using 
+```shell
+minikube dashboard --url
+```
+Expose a port using ssh's port forwarding
+```shell
+ssh -R 30000:127.0.0.1:8001 dan@172.16.15.140
+```
+Open a port on the firewall and then reload the daemon
+```shell
+sudo firewall-cmd --permanent --add-port=30000/tcp
+sudo firewall-cmd --reload
+```
