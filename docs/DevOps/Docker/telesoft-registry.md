@@ -43,7 +43,9 @@ ILOM: 172.16.6.47
     - Generating HTTPS certificates
     
         Useful [post](https://nodeployfriday.com/posts/self-signed-cert/)
+      
         Harbor docs: https://goharbor.io/docs/2.3.0/install-config/configure-https/
+      
         Another useful resource on installing harbor: https://computingforgeeks.com/how-to-install-harbor-docker-image-registry-on-centos-debian-ubuntu/
       
          Create a request configuration file as follows:
@@ -114,3 +116,16 @@ ILOM: 172.16.6.47
    ```
 
 
+## Troubleshooting
+
+To check the status of the containers that back the harbor service, cd into /root/harbo and run
+```shell
+docker-compose ps
+```
+If any of the containers have failed try a 
+```shell
+docker-compose restart
+```
+The logs for the containers are available here: `/var/log/harbor/`
+
+https://goharbor.io/docs/2.3.0/install-config/troubleshoot-installation/
