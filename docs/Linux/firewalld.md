@@ -13,5 +13,5 @@ sudo firewall-cmd --reload
 
 Add a port for TCP/UDP
 ```shell
-sudo firewall-cmd --permanent --add-port=8000/tcp
+sudo firewall-cmd --zone=public --permanent --add-port=8000/tcp
 ```

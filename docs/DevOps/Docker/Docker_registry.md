@@ -14,9 +14,6 @@ and add the following:
   "insecure-registries" : ["myregistrydomain.com:5000"]
 }
 
-
-
-
 ## Using HTTPS authentication ##
 
 https://oracle-base.com/articles/linux/docker-using-a-local-docker-registry
